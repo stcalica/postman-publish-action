@@ -3,6 +3,17 @@
 This repository contains GitHub Actions that help automate publishing Postman Collections to the Public API Network. 
 You can use these actions to fetch a schema or Postman collection, transform an OpenAPI schema into a Postman collection, and update a Postman collection programmatically as part of your CI/CD workflows.
 
+## Github Marketplace 
+
+I’ve kept it simple by listing just the key GitHub Actions you’ll find on GitHub Marketplace. Some of these live in their own repos, so you can use them without worrying about the full repo path. The table below shows how to call these Actions in your workflows, whether you’re grabbing them from the Marketplace or directly from this repo.
+
+| Action           | Description         |  Public Repo Reference            | Marketplace Reference          |  Marketplace Link          |
+|------------------|--------------------------------|---------------------------------|---------------------------------|---------------------------------|
+| Fetch Collection | Fetch a collection from a repo you have access to | `stcalica/postman-publish-action/actions/fetch-collection@master`      | `stacalica/fetch-collection@v1.0.0`      | https://github.com/marketplace/actions/fetch-postman-collection |
+| Update Collection | Update a postman collection - uses PATCH to preserve forks and metrics | `stcalica/postman-publish-action/actions/update-collection@master`      | `stacalica/update-collection@v1.0.0`      | https://github.com/marketplace/actions/update-postman-collection |
+| OpenAPI JSON to Postman Collection | Transform OPENAPI **output** into a Posmtan Collection | `stcalica/postman-publish-action/actions/transform-openapi@master`   | `stcalica/transform-openapi-to-postman-collection@v1.0.0`  | https://github.com/marketplace/actions/transform-openapi-to-postman-collection |
+| OpenAPI to Postman Collection from **file** | Transform an OPENAPI file Postman Collection  | `stcalica/postman-publish-action/actions/transform-openapi-from-file@master`   | Not on Marketplace  | Not on Marketplace 
+
 
 ## Actions
 
@@ -16,7 +27,7 @@ You can use these actions to fetch a schema or Postman collection, transform an 
    #### Example Usage:
    ```yaml
    - name: Fetch Postman Collection
-     uses: stcalica/postman-publish-action@master
+     uses: stcalica/postman-publish-action/actions/fetch-collection@master
      with:
        postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
        collection_id: 'your-collection-id'
@@ -33,7 +44,7 @@ You can use these actions to fetch a schema or Postman collection, transform an 
    #### Example Usage:
    ```yaml
    - name: Transform OpenAPI to Postman Collection
-     uses: stcalica/postman-publish-action@master
+     uses: stcalica/postman-publish-action/actions/transform-openapi@master
      with:
        postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
        openapi_schema_url: 'https://api.example.com/openapi.yaml'
@@ -50,11 +61,11 @@ You can use these actions to fetch a schema or Postman collection, transform an 
    #### Example Usage:
    ```yaml
    - name: Transform OpenAPI to Postman Collection
-     uses: stcalica/postman-publish-action@master
+     uses: stcalica/postman-publish-action/actions/transform-openapi-from-file@master
      with:
        postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
        openapi_schema_path: './tests/cats.yaml'
-
+ ```
 
 ### 4. **Update Postman Collection**
    This action updates a destination Postman collection with the contents of another source collection. You can use this action to keep your collections in sync across environments or projects.
@@ -67,7 +78,7 @@ You can use these actions to fetch a schema or Postman collection, transform an 
    #### Example Usage:
    ```yaml
    - name: Update Postman Collection
-     uses: stcalica/postman-publish-action@master
+     uses: stcalica/postman-publish-action/actions/update-collection@master
      with:
        postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
        source_collection_id: 'source-collection-id'
@@ -92,20 +103,20 @@ jobs:
 
     steps:
       - name: Fetch Postman Collection
-        uses: stcalica/postman-publish-action@master
+        uses: stcalica/postman-publish-action/actions/fetch-collection@master
         with:
           postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
           collection_id: 'your-collection-uid'
 
       - name: Transform OpenAPI to Postman Collection
-        uses: stcalica/postman-publish-action@master
+        uses: stcalica/postman-publish-action/actions/transform-openapi-from-file@master
         with:
           postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
           openapi_schema_url: 'https://api.example.com/openapi.yaml'
           destination_collection_id: 'your-collection-uid'
 
       - name: Update Postman Collection
-        uses: stcalica/postman-publish-action@master
+        uses: stcalica/postman-publish-action/actions/update-collection@master
         with:
           postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
           source_collection_id: 'source-collection-uid'
@@ -121,7 +132,3 @@ jobs:
 ## License
 
 This repository is licensed under the [MIT License](LICENSE).
-
----
-
-Feel free to adjust any section or add more details depending on your project’s requirements!
