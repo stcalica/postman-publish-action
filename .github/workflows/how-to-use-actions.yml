@@ -1,0 +1,29 @@
+name: GitHub Actions Demo
+run-name: Fetching Actiosn from Marketplace or Public Repo
+on: [push]
+jobs:
+  GET-FROM-MARKETPLACE:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Testing a pull from the GitHub Action Marketplace"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Pull Postman Collection
+        uses: stcalica/fetch-collection@v1.0.0
+        with:
+          postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
+          collection_id: ${{ vars.UPDATE_COLLECTION_ID }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+
+  GET-FROM-REPO:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Testing a pull from the Public Github Repo"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Pull Postman Collection
+        uses:  stcalica/postman-publish-action/actions/fetch-collection@master
+        with:
+          postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
+          collection_id: ${{ vars.UPDATE_COLLECTION_ID }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
