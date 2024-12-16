@@ -12,7 +12,8 @@ I’ve kept it simple by listing just the key GitHub Actions you’ll find on Gi
 | Fetch Collection | Fetch a collection from a repo you have access to | `stcalica/postman-publish-action/actions/fetch-collection@master`      | `stacalica/fetch-collection@v1.0.0`      | https://github.com/marketplace/actions/fetch-postman-collection |
 | Update Collection | Update a postman collection - uses PATCH to preserve forks and metrics | `stcalica/postman-publish-action/actions/update-collection@master`      | `stacalica/update-collection@v1.0.0`      | https://github.com/marketplace/actions/update-postman-collection |
 | OpenAPI JSON to Postman Collection | Transform OPENAPI **output** into a Posmtan Collection | `stcalica/postman-publish-action/actions/transform-openapi@master`   | `stcalica/transform-openapi-to-postman-collection@v1.0.0`  | https://github.com/marketplace/actions/transform-openapi-to-postman-collection |
-| OpenAPI to Postman Collection from **file** | Transform an OPENAPI file Postman Collection  | `stcalica/postman-publish-action/actions/transform-openapi-from-file@master`   | Not on Marketplace  | Not on Marketplace 
+| OpenAPI to Postman Collection from **file** | Transform an OPENAPI file Postman Collection  | `stcalica/postman-publish-action/actions/transform-openapi-from-file@master`   | `stcalica/transform-openapi-from-file
+@v1.0.0`  | https://github.com/marketplace/actions/transform-openapi-to-postman-collection-from-file
 
 
 ## Actions
