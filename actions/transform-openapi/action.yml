@@ -5,6 +5,10 @@ inputs:
     description: "The OpenAPI schema"
     required: true
     type: string
+  output_file:
+    description: "Optional output file if you want to a file rather than string output"
+    required: true
+    type: string
 outputs:
   postman_collection:
     description: 'The Postman collection JSON generated from the OpenAPI schema'
