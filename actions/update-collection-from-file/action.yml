@@ -1,0 +1,16 @@
+name: "Update Postman Collection (from File)"
+description: "Updates a Postman Collection from a Collection file."
+inputs:
+  postman_api_key:
+    description: "Your Postman API Key"
+    required: true
+  collection_id:
+    description: "The Destination Collection ID"
+    required: true
+  collection_path:
+    description: "The file path of the collection file with the latest updates"
+    required: true
+    type: string
+runs:
+  using: "node16"
+  main: "index.js"
