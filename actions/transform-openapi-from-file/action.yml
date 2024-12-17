@@ -5,9 +5,10 @@ inputs:
     description: "The file path of the OpenAPI schema"
     required: true
     type: string
-outputs:
-  postman_collection:
-    description: "The Postman collection JSON generated from the OpenAPI schema"
+  output_file:
+    description: "Optional output file if you want to a file rather than string output"
+    required: true
+    type: string
 runs:
   using: "node16"
   main: "index.js"

@@ -13,7 +13,7 @@ I’ve kept it simple by listing just the key GitHub Actions you’ll find on Gi
 | Update Collection | Update a postman collection - uses PATCH to preserve forks and metrics | `stcalica/postman-publish-action/actions/update-collection@master`      | `stacalica/update-collection@v1.0.0`      | https://github.com/marketplace/actions/update-postman-collection |
 | OpenAPI JSON to Postman Collection | Transform OPENAPI **output** into a Posmtan Collection | `stcalica/postman-publish-action/actions/transform-openapi@master`   | `stcalica/transform-openapi-to-postman-collection@v1.0.0`  | https://github.com/marketplace/actions/transform-openapi-to-postman-collection |
 | OpenAPI to Postman Collection from **file** | Transform an OPENAPI file Postman Collection  | `stcalica/postman-publish-action/actions/transform-openapi-from-file@master`   | `stcalica/transform-openapi-from-file@v1.0.0`  | https://github.com/marketplace/actions/transform-openapi-to-postman-collection-from-file
-
+| Update Postman Collection from **file** | Update a Postman Collection from a collection file  | `stcalica/postman-publish-action/actions/update-collection-from-file@master`   | `stcalica/update-collection-from-file-file@v1.0.0`  | 
 
 ## Actions
 
@@ -40,6 +40,7 @@ I’ve kept it simple by listing just the key GitHub Actions you’ll find on Gi
    - `postman_api_key`: Your Postman API key for authentication.
    - `openapi_schema_url`: The URL of the OpenAPI schema you want to transform into a Postman collection.
    - `destination_collection_id`: (Optional) If provided, this will be the UID of the Postman collection where the transformed schema will be stored.
+   - `output_file`: (Optional) If provided, this will create a file on the runner file system and output the filepath
 
    #### Example Usage:
    ```yaml
@@ -57,6 +58,7 @@ I’ve kept it simple by listing just the key GitHub Actions you’ll find on Gi
    #### Inputs:
    - `postman_api_key`: Your Postman API key for authentication.
    - `openapi_schema_path`: (Optional) If provided, this will be the UID of the Postman collection where the transformed schema will be stored.
+   - `output_file`: (Optional) If provided, this will create a file on the runner file system and output the filepath
 
    #### Example Usage:
    ```yaml
