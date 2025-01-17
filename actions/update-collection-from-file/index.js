@@ -15,7 +15,7 @@ async function run() {
         };
 
         const response = await axios.put(`https://api.getpostman.com/collections/${collectionId}`, { 'collection': JSON.parse(collectionData) }, {
-            headers: { 'X-Api-Key': apiKey, 'Content-Type': 'application/json' }
+            headers: { 'X-Api-Key': postmanApiKey, 'Content-Type': 'application/json' }
           });
       
         core.info(`Successfully updated collection: ${response.data.collection.name}`);
